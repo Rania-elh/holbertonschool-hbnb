@@ -1,9 +1,45 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.14">
   <diagram name="Page-1" id="tk8OsiWXybmB_zZQJ0Tz">
-    <mxGraphModel>
+    <mxGraphModel dx="794" dy="446" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-26" value="User" style="swimlane;fontStyle=1;strokeColor=#000000;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="330" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-27" value="id&#xa;first_name&#xa;last_name&#xa;email&#xa;password&#xa;is_admin" style="text;fontSize=12;" vertex="1" parent="A_Dxcb5lRY1b_Nkblvmy-26">
+          <mxGeometry y="30" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-28" value="Place" style="swimlane;fontStyle=1;strokeColor=#000000;fillColor=#F8CECC;" vertex="1" parent="1">
+          <mxGeometry x="680" y="430" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-29" value="id&#xa;title&#xa;description&#xa;price&#xa;latitude&#xa;longitude" style="text;fontSize=12;" vertex="1" parent="A_Dxcb5lRY1b_Nkblvmy-28">
+          <mxGeometry y="30" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-30" value="Review" style="swimlane;fontStyle=1;strokeColor=#000000;fillColor=#FFF2CC;" vertex="1" parent="1">
+          <mxGeometry x="680" y="630" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-31" value="id&#xa;rating&#xa;comment" style="text;fontSize=12;" vertex="1" parent="A_Dxcb5lRY1b_Nkblvmy-30">
+          <mxGeometry y="30" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-32" value="Amenity" style="swimlane;fontStyle=1;strokeColor=#000000;fillColor=#D4E4F8;" vertex="1" parent="1">
+          <mxGeometry x="930" y="480" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-33" value="id&#xa;name&#xa;description" style="text;fontSize=12;" vertex="1" parent="A_Dxcb5lRY1b_Nkblvmy-32">
+          <mxGeometry y="30" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-34" edge="1" parent="1" source="A_Dxcb5lRY1b_Nkblvmy-26" target="A_Dxcb5lRY1b_Nkblvmy-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-35" edge="1" parent="1" source="A_Dxcb5lRY1b_Nkblvmy-26" target="A_Dxcb5lRY1b_Nkblvmy-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-36" edge="1" parent="1" source="A_Dxcb5lRY1b_Nkblvmy-28" target="A_Dxcb5lRY1b_Nkblvmy-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_Dxcb5lRY1b_Nkblvmy-37" edge="1" parent="1" source="A_Dxcb5lRY1b_Nkblvmy-28" target="A_Dxcb5lRY1b_Nkblvmy-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
