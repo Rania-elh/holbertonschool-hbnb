@@ -1,0 +1,45 @@
+classDiagram
+    class User {
+        +UUID4 id
+        +String name
+        +String email
+        +DateTime created_at
+        +DateTime updated_at
+        +login()
+        +logout()
+    }
+
+    class Place {
+        +UUID4 id
+        +String name
+        +String location
+        +DateTime created_at
+        +DateTime updated_at
+        +addReview(Review review)
+        +addAmenity(Amenity amenity)
+    }
+
+    class Review {
+        +UUID4 id
+        +String content
+        +Int rating
+        +DateTime created_at
+        +DateTime updated_at
+        +editReview(String content)
+    }
+
+    class Amenity {
+        +UUID4 id
+        +String name
+        +DateTime created_at
+        +DateTime updated_at
+    }
+
+    User "1" --> "*" Review : writes
+    Place "1" --> "*" Review : receives
+    Place "1" --> "*" Amenity : includes
+
+    style User fill:#f9f,stroke:#333,stroke-width:2px
+    style Place fill:#bbf,stroke:#333,stroke-width:2px
+    style Review fill:#aff,stroke:#333,stroke-width:2px
+    style Amenity fill:#fea,stroke:#333,stroke-width:2px
