@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant API
+    participant BL as BusinessLogicLayer
+    participant DB as Database
+
+    User->>API: Register new account
+    API->>BL: Validate registration
+    BL->>DB: Save user data
+    DB-->>BL: Confirm save
+    BL-->>API: Return success
+    API-->>User: Registration confirmed
