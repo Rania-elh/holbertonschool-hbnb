@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant API
+    participant BL as BusinessLogicLayer
+    participant DB as Database
+
+    User->>API: Submit review
+    API->>BL: Validate review
+    BL->>DB: Save review details
+    DB-->>BL: Confirm save
+    BL-->>API: Return success
+    API-->>User: Review submission confirmed

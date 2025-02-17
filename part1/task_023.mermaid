@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant API
+    participant BL as BusinessLogicLayer
+    participant DB as Database
+
+    User->>API: Request list of places
+    API->>BL: Validate request
+    BL->>DB: Query places
+    DB-->>BL: Send results
+    BL-->>API: Return places list
+    API-->>User: Display places

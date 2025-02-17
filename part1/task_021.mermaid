@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant API
+    participant BL as BusinessLogicLayer
+    participant DB as Database
+
+    User->>API: Create new place
+    API->>BL: Validate and process place
+    BL->>DB: Save place details
+    DB-->>BL: Confirm save
+    BL-->>API: Return success
+    API-->>User: Place creation confirmed
