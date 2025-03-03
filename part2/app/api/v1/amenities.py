@@ -1,69 +1,43 @@
-from flask import Flask, jsonify, request
-from models.amenity import Amenity
-from models import storage
+from flask_restx import Namespace, Resource, fields
+from app.services import facade
 
-app = Flask(__name__)
+api = Namespace('amenities', description='Amenity operations')
 
-# GET /amenities → Liste des équipements
-@app.route('/api/v1/amenities', methods=['GET'])
-def get_amenities():
-    """Récupère la liste de tous les équipements"""
-    amenities = storage.all(Amenity).values()
-    return jsonify([amenity.to_dict() for amenity in amenities])
+# Define the amenity model for input validation and documentation
+amenity_model = api.model('Amenity', {
+    'name': fields.String(required=True, description='Name of the amenity')
+})
 
-# POST /amenities → Ajouter un équipement
-@app.route('/api/v1/amenities', methods=['POST'])
-def create_amenity():
-    """Créer un nouvel équipement"""
-    data = request.get_json()
+@api.route('/')
+class AmenityList(Resource):
+    @api.expect(amenity_model)
+    @api.response(201, 'Amenity successfully created')
+    @api.response(400, 'Invalid input data')
+    def post(self):
+        """Register a new amenity"""
+        # Placeholder for the logic to register a new amenity
+        pass
 
-    # Vérification que les données sont valides
-    if not data:
-        return jsonify({"error": "Not a JSON"}), 400
-    if 'name' not in data:
-        return jsonify({"error": "Missing name"}), 400
+    @api.response(200, 'List of amenities retrieved successfully')
+    def get(self):
+        """Retrieve a list of all amenities"""
+        # Placeholder for logic to return a list of all amenities
+        pass
 
-    name = data['name']
-    new_amenity = Amenity(name=name)
-    
-    # Sauvegarde dans le stockage
-    storage.new(new_amenity)
-    storage.save()
-    
-    return jsonify(new_amenity.to_dict()), 201
+@api.route('/<amenity_id>')
+class AmenityResource(Resource):
+    @api.response(200, 'Amenity details retrieved successfully')
+    @api.response(404, 'Amenity not found')
+    def get(self, amenity_id):
+        """Get amenity details by ID"""
+        # Placeholder for the logic to retrieve an amenity by ID
+        pass
 
-# GET /amenities/<id> → Obtenir un équipement spécifique
-@app.route('/api/v1/amenities/<amenity_id>', methods=['GET'])
-def get_amenity(amenity_id):
-    """Récupère un équipement par son ID"""
-    amenity = storage.get(Amenity, amenity_id)
-    
-    if amenity:
-        return jsonify(amenity.to_dict())
-    else:
-        return jsonify({"error": "Amenity not found"}), 404
-
-# PUT /amenities/<id> → Modifier un équipement
-@app.route('/api/v1/amenities/<amenity_id>', methods=['PUT'])
-def update_amenity(amenity_id):
-    """Met à jour un équipement existant"""
-    data = request.get_json()
-    
-    # Vérification que les données sont valides
-    if not data:
-        return jsonify({"error": "Not a JSON"}), 400
-    
-    # Recherche de l'équipement par ID
-    amenity = storage.get(Amenity, amenity_id)
-    if not amenity:
-        return jsonify({"error": "Amenity not found"}), 404
-    
-    # Mise à jour des données
-    if 'name' in data:
-        amenity.name = data['name']
-    
-    # Sauvegarde dans le stockage
-    storage.save()
-    
-    return jsonify(amenity.to_dict())
-
+    @api.expect(amenity_model)
+    @api.response(200, 'Amenity updated successfully')
+    @api.response(404, 'Amenity not found')
+    @api.response(400, 'Invalid input data')
+    def put(self, amenity_id):
+        """Update an amenity's information"""
+        # Placeholder for the logic to update an amenity by ID
+        pass
