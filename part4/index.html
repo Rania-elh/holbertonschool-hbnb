@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HBNB - Découvrez des logements d'exception</title>
+		<meta name="description" content="HBNB vous propose des logements uniques pour des séjours inoubliables partout dans le monde.">
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" type="image/png" href="images/icon.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link rel="stylesheet" href="interactive.css">
+		<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+		<script src="background-animation.js" defer></script>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<!-- En-tête avec navigation -->
+		<header class="main-header">
+			<div class="container header-container">
+				<div class="logo">
+					<a href="1dx.html" class="text-logo">R-A-K</a>
+				</div>
+				<nav class="main-nav">
+					<ul>
+						<li><a href="index.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+						<li><a href="#" id="destinations-link"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+						<li><a href="#" id="favorites-link"><i class="fas fa-heart"></i> Favoris</a></li>
+						<li><a href="login.html" id="login-link" class="login-button"><i class="fas fa-user"></i> Connexion</a></li>
+					</ul>
+				</nav>
+				<button class="mobile-menu-toggle" aria-label="Menu">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</header>
+
+		<!-- Section héro avec recherche améliorée -->
+		<div class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Trouvez votre <span class="highlight">logement de rêve</span></h1>
+					<p>Des milliers de logements exceptionnels vous attendent pour un séjour inoubliable</p>
+					<div class="search-container">
+						<div class="search-tabs">
+							<button class="search-tab active"><i class="fas fa-hotel"></i> Hébergement</button>
+							<button class="search-tab"><i class="fas fa-umbrella-beach"></i> Expériences</button>
+							<button class="search-tab"><i class="fas fa-utensils"></i> Restauration</button>
+						</div>
+						<div class="search-bar">
+							<div class="search-field">
+								<i class="fas fa-map-marker-alt"></i>
+								<input type="text" placeholder="Où allez-vous ?">
+							</div>
+							<div class="search-field">
+								<i class="fas fa-calendar-alt"></i>
+								<input type="text" placeholder="Quand ?">
+							</div>
+							<div class="search-field">
+								<i class="fas fa-user-friends"></i>
+								<input type="text" placeholder="Combien de personnes ?">
+							</div>
+							<button class="search-button">
+								<i class="fas fa-search"></i>
+								<span>Rechercher</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hero-overlay"></div>
+			<video autoplay muted loop class="hero-video">
+				<source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-cityscape-12809-large.mp4" type="video/mp4">
+			</video>
+		</div>
+
+		<!-- Catégories populaires -->
+		<section class="categories-section">
+			<div class="container">
+				<h2 class="section-title">Explorer par catégorie</h2>
+				<div class="categories-grid">
+					<a href="#" class="category-card">
+						<div class="category-icon"><i class="fas fa-mountain"></i></div>
+						<h3>Montagne</h3>
+					</a>
+					<a href="#" class="category-card">
+						<div class="category-icon"><i class="fas fa-umbrella-beach"></i></div>
+						<h3>Plage</h3>
+					</a>
+					<a href="#" class="category-card">
+						<div class="category-icon"><i class="fas fa-city"></i></div>
+						<h3>Ville</h3>
+					</a>
+					<a href="#" class="category-card">
+						<div class="category-icon"><i class="fas fa-campground"></i></div>
+						<h3>Campagne</h3>
+					</a>
+					<a href="#" class="category-card">
+						<div class="category-icon"><i class="fas fa-tint"></i></div>
+						<h3>Bord de mer</h3>
+					</a>
+					<a href="#" class="category-card">
+						<div class="category-icon"><i class="fas fa-swimming-pool"></i></div>
+						<h3>Piscine</h3>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<main class="container">
+			<!-- Filtres améliorés -->
+			<section class="filters">
+				<div class="filter-tabs">
+					<button class="filter-tab active">Tous</button>
+					<button class="filter-tab">Populaires</button>
+					<button class="filter-tab">Nouveautés</button>
+					<button class="filter-tab">Mieux notés</button>
+					<button class="filter-tab">Promotions</button>
+				</div>
+				<div class="filter-controls">
+					<div class="filter-group">
+						<label for="price-filter">Prix maximum:</label>
+						<select id="price-filter" class="custom-select">
+							<option value="all">Tous les prix</option>
+							<option value="50">Moins de 50€</option>
+							<option value="100">Moins de 100€</option>
+							<option value="150">Moins de 150€</option>
+							<option value="200">Moins de 200€</option>
+						</select>
+					</div>
+					<div class="filter-group">
+						<label for="type-filter">Type de logement:</label>
+						<select id="type-filter" class="custom-select">
+							<option value="all">Tous les types</option>
+							<option value="apartment">Appartement</option>
+							<option value="house">Maison</option>
+							<option value="studio">Studio</option>
+							<option value="villa">Villa</option>
+						</select>
+					</div>
+					<button class="filter-more-btn">
+						<i class="fas fa-sliders-h"></i>
+						<span>Plus de filtres</span>
+					</button>
+				</div>
+			</section>
+
+			<!-- Logements améliorés avec vignettes -->
+			<section id="places-list" class="places-grid">
+				<!-- Logement 1 -->
+				<div class="place-card">
+					<div class="place-card-tag">Populaire</div>
+					<div class="place-image-container">
+						<div class="place-image-slider">
+							<img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Appartement Vue Mer">
+							<img src="https://images.unsplash.com/photo-1554995207-c18c203602cb" alt="Salon">
+							<img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0" alt="Chambre">
+						</div>
+						<div class="place-slider-nav">
+							<button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+							<div class="slider-dots">
+								<span class="dot active"></span>
+								<span class="dot"></span>
+								<span class="dot"></span>
+							</div>
+							<button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+						</div>
+						<button class="favorite-button"><i class="far fa-heart"></i></button>
+					</div>
+					<div class="place-content">
+						<div class="place-header">
+							<h3>Appartement Vue Mer</h3>
+							<div class="place-rating">
+								<i class="fas fa-star"></i>
+								<span>4.8</span>
+								<span class="reviews-count">(124)</span>
+							</div>
+						</div>
+						<p class="place-host">Hôte: Marie L. <span class="host-badge">Superhôte</span></p>
+						<p class="place-location"><i class="fas fa-map-marker-alt"></i> Marseille, France</p>
+						<p class="place-description">Magnifique appartement avec vue panoramique sur la mer. Proche des commerces et des transports.</p>
+						<div class="place-amenities">
+							<span><i class="fas fa-wifi"></i> Wifi</span>
+							<span><i class="fas fa-parking"></i> Parking</span>
+							<span><i class="fas fa-swimming-pool"></i> Piscine</span>
+							<span class="more-amenities">+3</span>
+						</div>
+						<div class="place-availability">
+							<i class="fas fa-calendar-check"></i>
+							<span>Disponible: 12 sept. - 30 oct.</span>
+						</div>
+						<div class="place-footer">
+							<p class="place-price">120€ <span>/ nuit</span></p>
+							<div class="place-buttons">
+								<a href="place.html?id=1" class="details-button">Voir détails</a>
+								<button class="quick-book"><i class="fas fa-bolt"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Logement 2 -->
+				<div class="place-card">
+					<div class="place-image-container">
+						<div class="place-image-slider">
+							<img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af" alt="Studio Moderne Centre-Ville">
+							<img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc" alt="Salon">
+							<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Cuisine">
+						</div>
+						<div class="place-slider-nav">
+							<button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+							<div class="slider-dots">
+								<span class="dot active"></span>
+								<span class="dot"></span>
+								<span class="dot"></span>
+							</div>
+							<button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+						</div>
+						<button class="favorite-button"><i class="far fa-heart"></i></button>
+					</div>
+					<div class="place-content">
+						<div class="place-header">
+							<h3>Studio Moderne Centre-Ville</h3>
+							<div class="place-rating">
+								<i class="fas fa-star"></i>
+								<span>4.6</span>
+								<span class="reviews-count">(89)</span>
+							</div>
+						</div>
+						<p class="place-host">Hôte: Jean D.</p>
+						<p class="place-location"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+						<p class="place-description">Studio entièrement rénové au cœur de la ville. Idéal pour les séjours courts.</p>
+						<div class="place-amenities">
+							<span><i class="fas fa-wifi"></i> Wifi</span>
+							<span><i class="fas fa-utensils"></i> Cuisine</span>
+							<span><i class="fas fa-tv"></i> TV</span>
+							<span class="more-amenities">+2</span>
+						</div>
+						<div class="place-availability">
+							<i class="fas fa-calendar-check"></i>
+							<span>Disponible: Maintenant</span>
+						</div>
+						<div class="place-footer">
+							<p class="place-price">85€ <span>/ nuit</span></p>
+							<div class="place-buttons">
+								<a href="place.html?id=2" class="details-button">Voir détails</a>
+								<button class="quick-book"><i class="fas fa-bolt"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Logement 3 -->
+				<div class="place-card">
+					<div class="place-card-tag special">Nouveau</div>
+					<div class="place-image-container">
+						<div class="place-image-slider">
+							<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Maison de Campagne">
+							<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Intérieur">
+							<img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="Jardin">
+						</div>
+						<div class="place-slider-nav">
+							<button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+							<div class="slider-dots">
+								<span class="dot active"></span>
+								<span class="dot"></span>
+								<span class="dot"></span>
+							</div>
+							<button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+						</div>
+						<div class="place-discount-badge">-15%</div>
+						<button class="favorite-button"><i class="far fa-heart"></i></button>
+					</div>
+					<div class="place-content">
+						<div class="place-header">
+							<h3>Maison de Campagne</h3>
+							<div class="place-rating">
+								<i class="fas fa-star"></i>
+								<span>4.9</span>
+								<span class="reviews-count">(56)</span>
+							</div>
+						</div>
+						<p class="place-host">Hôte: Sophie B. <span class="host-badge">Superhôte</span></p>
+						<p class="place-location"><i class="fas fa-map-marker-alt"></i> Provence, France</p>
+						<p class="place-description">Charmante maison traditionnelle entourée de nature. Parfaite pour les familles et les amis.</p>
+						<div class="place-amenities">
+							<span><i class="fas fa-wifi"></i> Wifi</span>
+							<span><i class="fas fa-parking"></i> Parking</span>
+							<span><i class="fas fa-swimmer"></i> Jacuzzi</span>
+							<span class="more-amenities">+5</span>
+						</div>
+						<div class="place-availability">
+							<i class="fas fa-calendar-check"></i>
+							<span>Disponible: 3 oct. - 20 déc.</span>
+						</div>
+						<div class="place-footer">
+							<p class="place-price"><span class="old-price">150€</span> 127€ <span>/ nuit</span></p>
+							<div class="place-buttons">
+								<a href="place.html?id=3" class="details-button">Voir détails</a>
+								<button class="quick-book"><i class="fas fa-bolt"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Logement 4 -->
+				<div class="place-card">
+					<div class="place-image-container">
+						<div class="place-image-slider">
+							<img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="Loft Industriel">
+							<img src="https://images.unsplash.com/photo-1593696140826-c58b021acf8b" alt="Espace de vie">
+							<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858" alt="Cuisine">
+						</div>
+						<div class="place-slider-nav">
+							<button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+							<div class="slider-dots">
+								<span class="dot active"></span>
+								<span class="dot"></span>
+								<span class="dot"></span>
+							</div>
+							<button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+						</div>
+						<button class="favorite-button"><i class="far fa-heart"></i></button>
+					</div>
+					<div class="place-content">
+						<div class="place-header">
+							<h3>Loft Industriel</h3>
+							<div class="place-rating">
+								<i class="fas fa-star"></i>
+								<span>4.7</span>
+								<span class="reviews-count">(112)</span>
+							</div>
+						</div>
+						<p class="place-host">Hôte: Marc R.</p>
+						<p class="place-location"><i class="fas fa-map-marker-alt"></i> Lyon, France</p>
+						<p class="place-description">Espace de vie moderne dans un ancien entrepôt rénové. Style industriel et confortable.</p>
+						<div class="place-amenities">
+							<span><i class="fas fa-wifi"></i> Wifi</span>
+							<span><i class="fas fa-tshirt"></i> Lave-linge</span>
+							<span><i class="fas fa-dumbbell"></i> Salle de sport</span>
+							<span class="more-amenities">+4</span>
+						</div>
+						<div class="place-availability">
+							<i class="fas fa-calendar-check"></i>
+							<span>Disponible: 5 sept. - 15 nov.</span>
+						</div>
+						<div class="place-footer">
+							<p class="place-price">110€ <span>/ nuit</span></p>
+							<div class="place-buttons">
+								<a href="place.html?id=4" class="details-button">Voir détails</a>
+								<button class="quick-book"><i class="fas fa-bolt"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section carte interactive -->
+			<section class="map-section">
+				<h2 class="section-title">Découvrir par région</h2>
+				<div class="map-container">
+					<div class="interactive-map">
+						<!-- Image placeholder pour la carte -->
+						<img src="https://maps.googleapis.com/maps/api/staticmap?center=France&zoom=5&size=800x400&key=YOUR_API_KEY" alt="Carte des logements">
+						<!-- Points sur la carte -->
+						<div class="map-marker" style="top: 40%; left: 45%;">
+							<div class="marker-popup">
+								<h4>Paris</h4>
+								<p>254 logements</p>
+							</div>
+						</div>
+						<div class="map-marker" style="top: 65%; left: 55%;">
+							<div class="marker-popup">
+								<h4>Marseille</h4>
+								<p>187 logements</p>
+							</div>
+						</div>
+						<div class="map-marker" style="top: 55%; left: 30%;">
+							<div class="marker-popup">
+								<h4>Bordeaux</h4>
+								<p>145 logements</p>
+							</div>
+						</div>
+					</div>
+					<div class="popular-regions">
+						<h3>Régions populaires</h3>
+						<ul class="region-list">
+							<li>
+								<a href="#">
+									<img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Paris">
+									<div class="region-info">
+										<h4>Paris</h4>
+										<p>254 logements</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="https://images.unsplash.com/photo-1558386621-37b37a8903d3" alt="Marseille">
+									<div class="region-info">
+										<h4>Marseille</h4>
+										<p>187 logements</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="https://images.unsplash.com/photo-1589394760151-b4c9942b0fd3" alt="Lyon">
+									<div class="region-info">
+										<h4>Lyon</h4>
+										<p>163 logements</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="https://images.unsplash.com/photo-1539710550557-788d9655f219" alt="Bordeaux">
+									<div class="region-info">
+										<h4>Bordeaux</h4>
+										<p>145 logements</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section de promotion devenir hôte -->
+			<section class="promo-section">
+				<div class="promo-card host">
+					<div class="promo-content">
+						<h2>Devenez hôte sur HBNB</h2>
+						<p>Gagnez un revenu supplémentaire en partageant votre logement avec des voyageurs du monde entier.</p>
+						<ul class="promo-features">
+							<li><i class="fas fa-check-circle"></i> Inscription gratuite et rapide</li>
+							<li><i class="fas fa-check-circle"></i> Contrôle total de votre disponibilité</li>
+							<li><i class="fas fa-check-circle"></i> Assistance 24/7 pour les hôtes</li>
+						</ul>
+						<a href="#" class="cta-button">Devenir hôte</a>
+					</div>
+					<div class="promo-image">
+						<img src="https://images.unsplash.com/photo-1556912172-45ba63e02795" alt="Devenir hôte">
+					</div>
+				</div>
+
+				<div class="promo-card experience">
+					<div class="promo-image">
+						<img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0" alt="Expériences uniques">
+					</div>
+					<div class="promo-content">
+						<h2>Expériences uniques</h2>
+						<p>Découvrez des activités inoubliables proposées par des experts locaux lors de votre séjour.</p>
+						<ul class="promo-features">
+							<li><i class="fas fa-check-circle"></i> Visites guidées personnalisées</li>
+							<li><i class="fas fa-check-circle"></i> Ateliers culinaires et artistiques</li>
+							<li><i class="fas fa-check-circle"></i> Aventures en plein air</li>
+						</ul>
+						<a href="#" class="cta-button secondary">Explorer les expériences</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section témoignages -->
+			<section class="testimonials-section">
+				<h2 class="section-title">Ce que disent nos voyageurs</h2>
+
+				<div class="testimonials-container">
+					<div class="testimonial-card">
+						<div class="testimonial-quote-icon">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="testimonial-content">
+							<div class="testimonial-rating">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+							<p>"Une expérience incroyable ! L'appartement était exactement comme sur les photos, la vue sur la mer à couper le souffle. Nous reviendrons sans hésiter."</p>
+						</div>
+						<div class="testimonial-author">
+							<img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sophie L.">
+							<div class="author-details">
+								<h4>Sophie L.</h4>
+								<p><i class="fas fa-map-marker-alt"></i> Séjour à Marseille</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="testimonial-card">
+						<div class="testimonial-quote-icon">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="testimonial-content">
+							<div class="testimonial-rating">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+							<p>"Notre superhôte a été extrêmement attentionné, nous proposant même des activités locales adaptées à nos intérêts. Le logement était impeccable et très bien situé."</p>
+						</div>
+						<div class="testimonial-author">
+							<img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Thomas B.">
+							<div class="author-details">
+								<h4>Thomas B.</h4>
+								<p><i class="fas fa-map-marker-alt"></i> Séjour à Paris</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="testimonial-card">
+						<div class="testimonial-quote-icon">
+							<i class="fas fa-quote-left"></i>
+						</div>
+						<div class="testimonial-content">
+							<div class="testimonial-rating">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star-half-alt"></i>
+							</div>
+							<p>"La maison de campagne était parfaite pour notre retraite familiale. Calme, spacieuse, avec toutes les commodités nécessaires. La piscine et le jardin étaient magnifiques."</p>
+						</div>
+						<div class="testimonial-author">
+							<img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Marie C.">
+							<div class="author-details">
+								<h4>Marie C.</h4>
+								<p><i class="fas fa-map-marker-alt"></i> Séjour en Provence</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="testimonial-controls">
+					<button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+					<div class="testimonial-dots">
+						<span class="testimonial-dot active"></span>
+						<span class="testimonial-dot"></span>
+						<span class="testimonial-dot"></span>
+					</div>
+					<button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+				</div>
+			</section>
+
+			<!-- Assistant de chat -->
+			<div class="chat-widget">
+				<button class="chat-button">
+					<i class="fas fa-comments"></i>
+					<span>Besoin d'aide ?</span>
+				</button>
+				<div class="chat-popup">
+					<div class="chat-header">
+						<h3>Assistant HBNB</h3>
+						<button class="close-chat"><i class="fas fa-times"></i></button>
+					</div>
+					<div class="chat-messages">
+						<div class="chat-message assistant">
+							<p>Bonjour ! Comment puis-je vous aider aujourd'hui ?</p>
+						</div>
+					</div>
+					<div class="chat-input">
+						<input type="text" placeholder="Posez votre question...">
+						<button><i class="fas fa-paper-plane"></i></button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Pied de page amélioré -->
+		<footer class="main-footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-column">
+						<h3>HBNB</h3>
+						<ul>
+							<li><a href="#">À propos de nous</a></li>
+							<li><a href="#">Comment ça marche</a></li>
+							<li><a href="#">Carrières</a></li>
+							<li><a href="#">Investisseurs</a></li>
+							<li><a href="#">HBNB Luxe</a></li>
+						</ul>
+					</div>
+					<div class="footer-column">
+						<h3>Communauté</h3>
+						<ul>
+							<li><a href="#">Diversité et inclusion</a></li>
+							<li><a href="#">Accessibilité</a></li>
+							<li><a href="#">Inviter des amis</a></li>
+							<li><a href="#">Programme d'affiliation</a></li>
+							<li><a href="#">Forum communautaire</a></li>
+						</ul>
+					</div>
+					<div class="footer-column">
+						<h3>Assistance</h3>
+						<ul>
+							<li><a href="#">Centre d'aide</a></li>
+							<li><a href="#">Confiance et sécurité</a></li>
+							<li><a href="#">Options d'annulation</a></li>
+							<li><a href="#">Support hôte</a></li>
+							<li><a href="#">Contacter le support</a></li>
+						</ul>
+					</div>
+					<div class="footer-column">
+						<h3>Suivez-nous</h3>
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-twitter"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							<a href="#"><i class="fab fa-pinterest-p"></i></a>
+						</div>
+						<div class="newsletter">
+							<h4>Recevez nos offres</h4>
+							<form>
+								<input type="email" placeholder="Votre email" required>
+								<button type="submit"><i class="fas fa-paper-plane"></i></button>
+							</form>
+						</div>
+						<div class="app-download">
+							<h4>Téléchargez l'application</h4>
+							<div class="app-buttons">
+								<a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store"></a>
+								<a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>HBNB &copy; 2024 - Tous droits réservés</p>
+					<div class="footer-links">
+						<a href="#">Confidentialité</a>
+						<a href="#">Cookies</a>
+						<a href="#">Conditions générales</a>
+						<a href="#">Plan du site</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<button id="back-to-top" class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+		<script src="scripts.js"></script>
+	</body>
+</html>
